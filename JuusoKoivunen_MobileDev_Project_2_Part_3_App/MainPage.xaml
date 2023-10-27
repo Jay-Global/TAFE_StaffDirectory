@@ -26,7 +26,16 @@
             <Border StrokeThickness="3" Stroke="#595959" Padding="0" Margin="0">
                 <Entry IsPassword="True" BackgroundColor="white" TextColor="black" MaximumHeightRequest="30" Margin="0"  ></Entry>
             </Border>
-        <Button Text="LOGIN" MaximumWidthRequest="120" BorderWidth="2" BorderColor="#595959" CornerRadius="20" BackgroundColor="white" TextColor="black" Margin="0,100,0,0" />
+        <!-- .Net Maui navigation for beginners, JM, NavigateCommand-->
+        <Button Text="LOGIN"
+                Command="{Binding NavigateCommand}"     
+                MaximumWidthRequest="120"
+                BorderWidth="2"
+                BorderColor="#595959"
+                CornerRadius="20"
+                BackgroundColor="white"
+                TextColor="black"
+                Margin="0,100,0,0" />
     </VerticalStackLayout>
 </VerticalStackLayout>
 
@@ -34,23 +43,3 @@
 </ContentPage>
 
 
-
-
-
-
-
-
-
-
-
-
- <!--<Grid VerticalOptions="Center" WidthRequest="600" Margin="0,200,0,200" RowSpacing="10">
-        <Label Text="Username" TextColor="White" FontSize="Medium" Margin="20"></Label>
-        <Border StrokeThickness="3" Stroke="#595959">
-        <Entry BackgroundColor="white">
-
-        </Entry>
-
-        </Border>
-
-    </Grid>-->

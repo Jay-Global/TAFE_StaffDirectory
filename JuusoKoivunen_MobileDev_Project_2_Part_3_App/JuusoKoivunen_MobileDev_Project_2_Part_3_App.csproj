@@ -53,12 +53,19 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <None Remove="Pages\" />
+	  <None Remove="Resources\.DS_Store" />
+	  <None Remove="ViewModels\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Pages\" />
+	  <Folder Include="ViewModels\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <BundleResource Include="Resources\.DS_Store" />
 	</ItemGroup>
 </Project>

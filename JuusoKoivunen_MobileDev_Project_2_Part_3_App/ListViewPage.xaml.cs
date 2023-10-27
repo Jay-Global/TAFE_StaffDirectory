@@ -2,15 +2,11 @@
 
 namespace JuusoKoivunen_MobileDev_Project_2_Part_3_App;
 
-public partial class MainPage : ContentPage
+public partial class ListViewPage : ContentPage
 {
-
-	public MainPage()
+	public ListViewPage()
 	{
 		InitializeComponent();
-		BindingContext = new MainViewModel();
+		BindingContext = new ListViewModel();
 	}
-
 }
-
-

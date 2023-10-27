@@ -8,13 +8,14 @@
     Shell.TabBarIsVisible="False"
     Shell.TitleColor="black" Shell.ForegroundColor="#941a1d"
     MinimumHeightRequest="200"
-    >
-    <!--<Shell.Resources>
-        <x:StyleSheetExtension Source="Resources/Styles/ShellTabStyless.css"></x:StyleSheetExtension>
-    </Shell.Resources>
 
-    <Tab StyleClass="navbar">
-    </Tab>-->
+    Shell.BackButtonBehavior="{Binding GoBackCommand}"
+    >
+    <!--These are to try TARGET the shell menu button changin from hamburger to back arrow-->
+
+
+    <!--At the above, controls for title and menu icon colours, also for flyout controls, height not working
+        At Below, itemtemplate is to group menu items, images can be added if wanted, also here we modify text size etc-->
 
     <Shell.ItemTemplate>
         <DataTemplate>
@@ -28,7 +29,6 @@
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent
         Title="Home"
-        Icon="/Users/jay/Desktop/TAFE/Semester 2 /Assesment Files/MobileDev/Project 2/ANSWERS/Assets/ROI_Logo.png"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
@@ -42,15 +42,7 @@
 
 
 
-
-
-
-    <Tab FlexLayout.AlignSelf="Start"  >
-        
-
-    </Tab>
-
-   
+<!--Modifies the flyout heaader, here where the logo is added-->
 
    <Shell.FlyoutHeader>
        <Grid HeightRequest="100" BackgroundColor="white">
@@ -59,15 +51,14 @@
    </Shell.FlyoutHeader>
 
   
+<!--Controls top bar and flyout colours, might be unnessesary since maybe can be set on Shell itself at the top-->
 
-
-     <Shell.BackgroundColor>
+    <Shell.BackgroundColor>
         <Color>white</Color>
     </Shell.BackgroundColor>
     
     <Shell.FlyoutBackgroundColor>
         <Color>#941a1d</Color>
-
     </Shell.FlyoutBackgroundColor>
 
 
