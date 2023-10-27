@@ -4,12 +4,77 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:JuusoKoivunen_MobileDev_Project_2_Part_3_App"
-    Shell.FlyoutBehavior="Disabled">
+    FlyoutBackdrop="#59595950" FlyoutWidth="400"
+    Shell.TabBarIsVisible="False"
+    Shell.TitleColor="black" Shell.ForegroundColor="#941a1d"
+    MinimumHeightRequest="200"
+    >
+    <!--<Shell.Resources>
+        <x:StyleSheetExtension Source="Resources/Styles/ShellTabStyless.css"></x:StyleSheetExtension>
+    </Shell.Resources>
 
-    <ShellContent
+    <Tab StyleClass="navbar">
+    </Tab>-->
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <VerticalStackLayout Spacing="10">
+                <Label Text="{Binding Title}" Margin="20" FontSize="Large"></Label>
+            </VerticalStackLayout>
+        </DataTemplate>
+
+    </Shell.ItemTemplate>
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
         Title="Home"
+        Icon="/Users/jay/Desktop/TAFE/Semester 2 /Assesment Files/MobileDev/Project 2/ANSWERS/Assets/ROI_Logo.png"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
+        <ShellContent
+        Title="List View"
+        ContentTemplate="{DataTemplate local:ListViewPage}"
+        Route="ListViewPage" />
+    </FlyoutItem>
+
+
+
+
+
+
+
+
+    <Tab FlexLayout.AlignSelf="Start"  >
+        
+
+    </Tab>
+
+   
+
+   <Shell.FlyoutHeader>
+       <Grid HeightRequest="100" BackgroundColor="white">
+           <Image Source="/Users/jay/Desktop/TAFE/Semester 2 /Assesment Files/MobileDev/Project 2/ANSWERS/Assets/ROI_Logo.png" WidthRequest="100" ></Image>
+       </Grid>
+   </Shell.FlyoutHeader>
+
+  
+
+
+     <Shell.BackgroundColor>
+        <Color>white</Color>
+    </Shell.BackgroundColor>
+    
+    <Shell.FlyoutBackgroundColor>
+        <Color>#941a1d</Color>
+
+    </Shell.FlyoutBackgroundColor>
+
+
+
+
+
+
+    
 </Shell>
 
