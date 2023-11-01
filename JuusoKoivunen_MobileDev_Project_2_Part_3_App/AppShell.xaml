@@ -1,9 +1,11 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8"
 <Shell
     x:Class="JuusoKoivunen_MobileDev_Project_2_Part_3_App.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:JuusoKoivunen_MobileDev_Project_2_Part_3_App"
+    xmlns:views="clr-namespace:JuusoKoivunen_MobileDev_Project_2_Part_3_App.ViewModel"
+    x:DataType="local:MainPage"
     FlyoutBackdrop="#59595950" FlyoutWidth="400"
     Shell.TabBarIsVisible="False"
     Shell.TitleColor="black" Shell.ForegroundColor="#941a1d"
@@ -28,14 +30,21 @@
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent
         Title="Home"
-        Icon="/Users/jay/Desktop/TAFE/Semester 2 /Assesment Files/MobileDev/Project 2/ANSWERS/Assets/ROI_Logo.png"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
         <ShellContent
-        Title="List View"
+        Title="Contact List"
         ContentTemplate="{DataTemplate local:ListViewPage}"
         Route="ListViewPage" />
+
+        <!--This should not come up on bar. only when clicked/tapped from the list-->
+
+      
+            
+
+
+        
     </FlyoutItem>
 
 
@@ -69,12 +78,4 @@
         <Color>#941a1d</Color>
 
     </Shell.FlyoutBackgroundColor>
-
-
-
-
-
-
-    
-</Shell>
-
+</Shell?>

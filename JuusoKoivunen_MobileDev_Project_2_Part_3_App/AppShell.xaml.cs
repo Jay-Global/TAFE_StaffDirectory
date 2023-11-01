@@ -4,7 +4,11 @@ public partial class AppShell : Shell
 {
 	public AppShell()
 	{
-		InitializeComponent();
+        InitializeComponent();
 	}
-}
 
+    private void InitializeComponent()
+    {
+        throw new NotImplementedException();
+    }
+}
