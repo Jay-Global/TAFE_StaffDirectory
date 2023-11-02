@@ -57,15 +57,23 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Pages\" />
 	  <None Remove="Resources\.DS_Store" />
 	  <None Remove="ViewModels\" />
+	  <None Remove="Views\" />
+	  <None Remove="Resources\Images\ROI_wallpaper.png" />
+	  <None Remove="Resources\Images\ROI_Logo.png" />
+	  <None Remove="Resources\Images\images.jpeg" />
+	  <None Remove="Model\" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="Pages\" />
 	  <Folder Include="ViewModels\" />
+	  <Folder Include="Views\" />
+	  <Folder Include="Model\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <BundleResource Include="Resources\.DS_Store" />
+	  <BundleResource Include="Resources\Images\ROI_wallpaper.png" />
+	  <BundleResource Include="Resources\Images\ROI_Logo.png" />
+	  <BundleResource Include="Resources\Images\images.jpeg" />
 	</ItemGroup>
 </Project>

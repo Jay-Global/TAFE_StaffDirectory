@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JuusoKoivunen_MobileDev_Project_2_Part_3_App.MainPage"
+             xmlns:viewmodel="clr-namespace:JuusoKoivunen_MobileDev_Project_2_Part_3_App.ViewModels"
+             x:DataType="viewmodel:MainViewModel"
+             Shell.NavBarIsVisible="True"
+             BackgroundColor="{StaticResource Primary}"
+             >
+<!--Here StackLayout is not optimal use since placing a logo and text and the space around is clumsy, maybe verticalStack or flex-->
+<!--Flex could be right choice, only when tried the header box child elements disapear, probs they should then be flex as well-->
+
+<!--Version 1.1.0 Still bit clumsy with sizing but at least everything fits now-->
+
+    <FlexLayout Direction="Column"
+                JustifyContent="SpaceBetween"
+                Wrap="NoWrap"
+                AlignContent="Center">
+        <FlexLayout Direction="Column"
+                    FlexLayout.Order="1"
+                    FlexLayout.Basis="40%">
+            <Border StrokeThickness="5"
+                    BackgroundColor="#595959"
+                    Stroke="#595959">
+                <Frame Background="white"
+                       CornerRadius="5"
+                       FlexLayout.Grow="1"
+                       FlexLayout.AlignSelf="Center">
+                    <Grid RowDefinitions="*,*"
+                          RowSpacing="35">
+                        <Image Source="roi_logo"
+                               WidthRequest="200"
+                               Grid.Row="0"/>
+                        <Label Text="Welcome to Staff Directory"
+                               TextColor="black"
+                               HorizontalTextAlignment="Center"
+                               FontSize="Title"
+                               VerticalOptions="Center"
+                               HeightRequest="100"
+                               Grid.Row="1">
+                            </Label>
+                     </Grid>
+                </Frame>
+            </Border>
+        </FlexLayout>
+        <VerticalStackLayout FlexLayout.Basis="60%"
+                             FlexLayout.Order="2"
+                             Margin="20,40"
+                             MaximumWidthRequest="600">
+            <Label Text="Username"
+                   TextColor="White"
+                   FontSize="Medium"
+                   Margin="0,20">
+            </Label>
+                <Border StrokeThickness="3"
+                        Stroke="#595959"
+                        Padding="0"
+                        Margin="0">
+                    <Entry BackgroundColor="white"
+                           TextColor="Black"
+                           MaximumHeightRequest="30"
+                           Margin="0"  >
+                    </Entry>
+                </Border>
+            <Label Text="Password"
+                   TextColor="White"
+                   FontSize="Medium"
+                   Margin="0,20">
+            </Label>
+                <Border StrokeThickness="3"
+                        Stroke="#595959"
+                        Padding="0"
+                        Margin="0">
+                    <Entry IsPassword="True"
+                           BackgroundColor="white"
+                           TextColor="black"
+                           MaximumHeightRequest="30"
+                           Margin="0"  >
+                    </Entry>
+                </Border>
+            <Button Text="LOGIN"
+                    Command="{Binding NavigateCommand}"
+                    MaximumWidthRequest="120"
+                    HeightRequest="40"
+                    BorderWidth="2"
+                    BorderColor="#595959"
+                    CornerRadius="20"
+                    BackgroundColor="white"
+                    TextColor="black"
+                    Margin="0,100,0,0" />
+    </VerticalStackLayout>
+    </FlexLayout>
+</ContentPage>
+
+

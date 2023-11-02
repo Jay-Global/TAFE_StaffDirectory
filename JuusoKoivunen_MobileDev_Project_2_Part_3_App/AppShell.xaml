@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:JuusoKoivunen_MobileDev_Project_2_Part_3_App"
     FlyoutBackdrop="#59595950" FlyoutWidth="400"
     Shell.TabBarIsVisible="False"
-    Shell.TitleColor="black" Shell.ForegroundColor="#941a1d"
+    Shell.TitleColor="black" Shell.ForegroundColor="{StaticResource Primary}"
     MinimumHeightRequest="200"
 
     Shell.BackButtonBehavior="{Binding GoBackCommand}"
@@ -46,7 +46,7 @@
 
    <Shell.FlyoutHeader>
        <Grid HeightRequest="100" BackgroundColor="white">
-           <Image Source="/Users/jay/Desktop/TAFE/Semester 2 /Assesment Files/MobileDev/Project 2/ANSWERS/Assets/ROI_Logo.png" WidthRequest="100" ></Image>
+           <Image Source="roi_logo.png" WidthRequest="100" ></Image>
        </Grid>
    </Shell.FlyoutHeader>
 
