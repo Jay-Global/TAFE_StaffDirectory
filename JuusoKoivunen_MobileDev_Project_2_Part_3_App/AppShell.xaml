@@ -10,6 +10,9 @@
     MinimumHeightRequest="200"
 
     Shell.BackButtonBehavior="{Binding GoBackCommand}"
+
+    BackgroundColor="white"
+    FlyoutBackgroundColor="{StaticResource Primary}"
     >
     <!--These are to try TARGET the shell menu button changin from hamburger to back arrow-->
 
@@ -28,19 +31,21 @@
 
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent
-        Title="Home"
+        Title="Login"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
         <ShellContent
-        Title="List View"
+        Title="Contact List"
         ContentTemplate="{DataTemplate local:ListViewPage}"
         Route="ListViewPage" />
+
+        <ShellContent
+        Title="Add New Contact"
+        ContentTemplate="{DataTemplate local:InsertPage}"
+        Route="InsertPage" />
+
     </FlyoutItem>
-
-
-
-
 
 <!--Modifies the flyout heaader, here where the logo is added-->
 
@@ -49,23 +54,5 @@
            <Image Source="roi_logo.png" WidthRequest="100" ></Image>
        </Grid>
    </Shell.FlyoutHeader>
-
-  
-<!--Controls top bar and flyout colours, might be unnessesary since maybe can be set on Shell itself at the top-->
-
-    <Shell.BackgroundColor>
-        <Color>white</Color>
-    </Shell.BackgroundColor>
-    
-    <Shell.FlyoutBackgroundColor>
-        <Color>#941a1d</Color>
-    </Shell.FlyoutBackgroundColor>
-
-
-
-
-
-
-    
 </Shell>
 

@@ -1,10 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JuusoKoivunen_MobileDev_Project_2_Part_3_App.ListViewPage"
-             Title="Contact List"
+             x:Class="JuusoKoivunen_MobileDev_Project_2_Part_3_App.InsertPage"
+             xmlns:viewmodel="clr-namespace:JuusoKoivunen_MobileDev_Project_2_Part_3_App.ViewModels"
+             x:DataType="viewmodel:InsertViewModel"
+             Title="Add New Contact"
              BackgroundColor="#941a1d">
-
+             
     <!--Flex layout is used for scalability, still some minor issues regarding mobile size screen-->
 
     <FlexLayout Direction="Column"
@@ -19,7 +21,7 @@
                 <Frame Background="white"
                 CornerRadius="5"
                 MaximumHeightRequest="120">
-                    <Image Source="/Users/jay/Desktop/TAFE/Semester 2 /Assesment Files/MobileDev/Project 2/ANSWERS/Assets/ROI_Logo.png"
+                    <Image Source="roi_logo"
                     MaximumWidthRequest="130"
                     MinimumWidthRequest="130"
                     Margin="0"/>
@@ -35,7 +37,7 @@
                     FlexLayout.Basis="100%">
             <Grid FlexLayout.AlignSelf="Stretch">
                 <Image Aspect="AspectFill"
-                       Source="/Users/jay/Desktop/TAFE/Semester 2 /Assesment Files/MobileDev/Project 2/ANSWERS/Assets/ROI_wallpaper.png"
+                       Source="roi_wallpaper"
                        Margin="10">
                 </Image>
                 <Grid>
@@ -46,65 +48,4 @@
 
         </ScrollView>
     </FlexLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<ScrollView>
-    <FlexLayout Direction="Column" Wrap="NoWrap" >
-        <Border StrokeThickness="6"
-            BackgroundColor="#595959"
-            Stroke="#595959"
-                FlexLayout.Basis="Auto">
-            <Frame Background="white"
-               CornerRadius="5"
-            
-               FlexLayout.Grow="0.25">
-                <Image Source="/Users/jay/Desktop/TAFE/Semester 2 /Assesment Files/MobileDev/Project 2/ANSWERS/Assets/ROI_Logo.png"
-                       MaximumWidthRequest="130"/>
-            </Frame>
-        </Border>
-        <VerticalStackLayout FlexLayout.Grow="1">
-            <BoxView Margin="15"
-                   BackgroundColor="White"
-                   CornerRadius="2">
-                   
-                   
-
-
-            </BoxView>
-
-        </VerticalStackLayout>
-    </FlexLayout>
-
-</ScrollView>-->
-
-
-
-
-
-
-
 </ContentPage>
