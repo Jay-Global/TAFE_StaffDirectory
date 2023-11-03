@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Syncfusion.Maui.Core.Hosting;
+using Microsoft.Extensions.Logging;
 //using JuusoKoivunen_MobileDev_Project_2_Part_3_App.Helpers;
 //using JuusoKoivunen_MobileDev_Project_2_Part_3_App.PlatformImplementations;
 using JuusoKoivunen_MobileDev_Project_2_Part_3_App.ViewModels;
@@ -11,7 +12,8 @@ public static class MauiProgram
 	{
 		var builder = MauiApp.CreateBuilder();
 		builder
-			.UseMauiApp<App>()
+            .ConfigureSyncfusionCore()
+            .UseMauiApp<App>()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
