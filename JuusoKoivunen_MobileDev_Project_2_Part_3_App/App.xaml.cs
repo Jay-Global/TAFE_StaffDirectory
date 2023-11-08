@@ -2,11 +2,20 @@
 
 public partial class App : Application
 {
-	public App()
-	{
-		InitializeComponent();
+    private readonly DatabaseHelper databaseHelper;
 
-		MainPage = new AppShell();
-	}
+    public App(DatabaseHelper databaseHelper)
+    {
+        InitializeComponent();
+
+        this.databaseHelper = databaseHelper;
+        MainPage = new AppShell();
+    }
+
+    protected override async void OnStart()
+    {
+        // Handle when your app starts
+        await databaseHelper.InitializeDatabaseAsync();
+    }
 }
 

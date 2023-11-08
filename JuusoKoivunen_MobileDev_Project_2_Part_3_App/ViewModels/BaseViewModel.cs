@@ -7,8 +7,8 @@ public partial class BaseViewModel : ObservableObject
     bool isBusy;
 
     [ObservableProperty]
-    string name, department, role, email;
-    int mobile;
+    string _firstname, _lastName, _department, _role, _mobileNumber, _email;
+    
 
 
     public bool IsNotBusy => !IsBusy;

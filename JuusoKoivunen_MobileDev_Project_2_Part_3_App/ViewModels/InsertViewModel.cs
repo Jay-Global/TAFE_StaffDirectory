@@ -1,19 +1,50 @@
-﻿namespace JuusoKoivunen_MobileDev_Project_2_Part_3_App.ViewModels;
+﻿//using CommunityToolkit.Mvvm.ComponentModel;
+//using CommunityToolkit.Mvvm.Input;
+//using System.Threading.Tasks;
+//using System.Windows.Input;
 
-public partial class InsertViewModel : BaseViewModel
+namespace JuusoKoivunen_MobileDev_Project_2_Part_3_App.ViewModels
 {
-    public ContactCard ContactCard { get; set; }
+    public partial class InsertViewModel : BaseViewModel
+    {
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(CanSubmit))]
+        string firstname, lastName, department, role, mobileNumber, email;
 
-    public InsertViewModel()
-	{
-        this.ContactCard = new ContactCard();
-        ContactCard.FirstName = "Clara";
-        ContactCard.LastName = "David";
-        ContactCard.Department = "California";
-        ContactCard.Role = "(742) 121-3133";
-        ContactCard.MobileNumber = "+1 731 220-9832";
-        ContactCard.Email = "clasravenus@gmail.com";
+        [RelayCommand]
+        async Task Insert()
+        {
+            if (IsBusy)
+                return;
 
+            IsBusy = true;
+
+            var contact = new Contact
+            {
+                FirstName = this.Firstname,
+                LastName = this.LastName,
+                Department = this.Department,
+                Role = this.Role,
+                MobileNumber = this.MobileNumber,
+                Email = this.Email
+            };
+
+            var databaseHelper = new DatabaseHelper("contacts.db");
+            await databaseHelper.SaveContactAsync(contact);
+
+            // Handle navigation and user feedback here
+
+            IsBusy = false;
+        }
+
+        public bool CanSubmit => !string.IsNullOrWhiteSpace(Firstname) &&
+                                 !string.IsNullOrWhiteSpace(LastName) &&
+                                 !string.IsNullOrWhiteSpace(Department) &&
+                                 !string.IsNullOrWhiteSpace(Role) &&
+                                 !string.IsNullOrWhiteSpace(MobileNumber) &&
+                                 !string.IsNullOrWhiteSpace(Email);
     }
 }
+
+
 

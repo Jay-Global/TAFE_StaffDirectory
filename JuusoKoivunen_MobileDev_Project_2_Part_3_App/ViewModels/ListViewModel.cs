@@ -1,14 +1,33 @@
-﻿namespace JuusoKoivunen_MobileDev_Project_2_Part_3_App.ViewModels;
+﻿//using System.Collections.ObjectModel;
+//using CommunityToolkit.Mvvm.ComponentModel;
+//using CommunityToolkit.Mvvm.Input;
+//using System.Threading.Tasks;
 
-public partial class ListViewModel : BaseViewModel
+namespace JuusoKoivunen_MobileDev_Project_2_Part_3_App.ViewModels
 {
-	public ListViewModel()
-	{
+    public partial class ListViewModel : BaseViewModel
+    {
+        public ObservableCollection<Contact> Contacts { get; } = new();
 
-	}
+        [RelayCommand]
+        async Task LoadContacts()
+        {
+            if (IsBusy)
+                return;
 
-	[RelayCommand]
+            IsBusy = true;
 
-	Task GoBack() => Shell.Current.GoToAsync(nameof(ListViewPage));
+            var databaseHelper = new DatabaseHelper("contacts.db");
+            var contacts = await databaseHelper.GetContactsAsync();
 
+            Contacts.Clear();
+            foreach (var contact in contacts)
+            {
+                Contacts.Add(contact);
+            }
+
+            IsBusy = false;
+        }
+    }
 }
+
