@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JuusoKoivunen_MobileDev_Project_2_Part_3_App.ListViewPage"
              xmlns:viewmodel="clr-namespace:JuusoKoivunen_MobileDev_Project_2_Part_3_App.ViewModels"
-             x:DataType="viewmodel:ListViewModel"
+             x:DataType="viewmodel:InsertViewModel"
              Title="Contact List"
              BackgroundColor="#941a1d">
              
@@ -42,6 +42,15 @@
                 </Image>
                 <Grid>
                     <!--This grid will contain populated cards with information when it's added-->
+                    <ListView ItemsSource="{Binding Contacts}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextCell Text="{Binding FirstName}" Detail="{Binding LastName}" />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+
 
                 </Grid>
             </Grid>

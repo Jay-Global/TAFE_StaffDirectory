@@ -100,6 +100,10 @@ public partial class InsertViewModel : ObservableObject
         await App.Current.MainPage.DisplayAlert("Success", "Contact added", "OK");
         // Optionally navigate back
         // await Shell.Current.GoToAsync("..");
+
+        // Call this method to refresh the list after adding a new contact
     }
+
+
 }
 
