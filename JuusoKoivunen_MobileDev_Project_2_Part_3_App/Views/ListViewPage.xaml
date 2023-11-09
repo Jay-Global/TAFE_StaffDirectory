@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JuusoKoivunen_MobileDev_Project_2_Part_3_App.ListViewPage"
              xmlns:viewmodel="clr-namespace:JuusoKoivunen_MobileDev_Project_2_Part_3_App.ViewModels"
-             x:DataType="viewmodel:InsertViewModel"
+             x:DataType="viewmodel:ListViewModel"
              Title="Contact List"
              BackgroundColor="#941a1d">
              
@@ -40,12 +40,20 @@
                        Source="roi_wallpaper"
                        Margin="10">
                 </Image>
-                <Grid>
-                    <!--This grid will contain populated cards with information when it's added-->
-                    <ListView ItemsSource="{Binding Contacts}">
+                <Grid Margin="30"
+                      ColumnDefinitions="*"
+                      RowDefinitions="*">
+                    <ListView ItemsSource="{Binding Contacts}"
+                              SelectedItem="{Binding SelectedContact, Mode=TwoWay}"
+                              BackgroundColor="Transparent"
+                              RowHeight="65"
+                              Margin="10"
+                              WidthRequest="300">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <TextCell Text="{Binding FirstName}" Detail="{Binding LastName}" />
+                                <TextCell Text="{Binding LastName}"
+                                          Detail="{Binding LastName}"
+                                          />
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>

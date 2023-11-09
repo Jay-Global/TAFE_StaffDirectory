@@ -28,29 +28,73 @@ public partial class ListViewModel : ObservableObject
 
 
 
-    [RelayCommand]
-    async Task SelectContact(Model.Contact selectedContact)
+    //[RelayCommand]
+    //async Task SelectContact(Model.Contact selectedContact)
+    //{
+    //    if (selectedContact != null)
+    //    {
+    //        // Navigate to details page with the selected contact
+    //    }
+    //}
+
+
+
+
+
+
+    private Model.Contact _selectedContact;
+    public Model.Contact SelectedContact
     {
-        if (selectedContact != null)
+        get => _selectedContact;
+        set
         {
-            // Navigate to details page with the selected contact
+            if (SetProperty(ref _selectedContact, value))
+            {
+                // Check for null because SetProperty is called even when the value is set to null
+                if (value != null)
+                {
+                    ShowContactDetails(value);
+                }
+            }
         }
     }
 
-    // This command will be triggered when a user selects a contact from the list
-    [RelayCommand]
-    async Task ShowContactDetails(Model.Contact contact)
+    private async void ShowContactDetails(Model.Contact contact)
     {
+        // Check if the contact is already null, to prevent navigation when deselecting
         if (contact != null)
         {
-            await Shell.Current.GoToAsync($"{nameof(DetailsPage)}", true, new Dictionary<string, object>
-        {
-            { "Contact", contact }
-        });
+            await Shell.Current.GoToAsync(nameof(DetailsPage), true, new Dictionary<string, object>
+            {
+                { "selectedContact", contact }
+            });
+            // Reset the selected item to ensure subsequent selections are detected
+            SelectedContact = null;
         }
     }
+
+
+
+
+
+    // This command will be triggered when a user selects a contact from the list
+    //[RelayCommand]
+    //async Task ShowContactDetails(Model.Contact contact)
+    //{
+    //    if (contact != null)
+    //    {
+    //        await Shell.Current.GoToAsync(nameof(DetailsPage), true, new Dictionary<string, object>
+    //    {
+    //        { "selectedContact", contact } // Use the same key as the parameter name in DetailsPage constructor
+    //    });
+    //    }
+    //}
 
     [RelayCommand]
 
 	Task GoBack() => Shell.Current.GoToAsync(nameof(ListViewPage));
+
+    private string lastName;
+
+    public string LastName { get => lastName; set => SetProperty(ref lastName, value); }
 }
