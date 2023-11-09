@@ -40,11 +40,62 @@
                        Source="roi_wallpaper"
                        Margin="10">
                 </Image>
-                <Grid>
+                <Grid Padding="100"
+                      RowSpacing="10">
                     <!--This grid will contain populated cards with information when it's added-->
+                    <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                        
+            </Grid.RowDefinitions>
+            
+            <!-- FirstName Entry -->
+            <Entry Grid.Row="0"
+                   BackgroundColor="White"
+                   TextColor="Black"
+                   Placeholder="First Name"
+                   PlaceholderColor="black"
+                   Text="{Binding FirstName, Mode=TwoWay}"/>
+            
+            <!-- LastName Entry -->
+            <Entry Grid.Row="1"
+                   Placeholder="Last Name"
+                   Text="{Binding LastName, Mode=TwoWay}"/>
+            
+            <!-- Department Entry -->
+            <Entry Grid.Row="2"
+                   Placeholder="Department"
+                   Text="{Binding Department, Mode=TwoWay}"/>
+            
+            <!-- Role Entry -->
+            <Entry Grid.Row="3"
+                   Placeholder="Role"
+                   Text="{Binding Role, Mode=TwoWay}"/>
+            
+            <!-- MobileNumber Entry -->
+            <Entry Grid.Row="4"
+                   Placeholder="Mobile Number"
+                   Text="{Binding MobileNumber, Mode=TwoWay}"
+                   Keyboard="Telephone"/>
 
+            <!-- Email Entry -->
+            <Entry Grid.Row="5"
+                   Placeholder="Email"
+                   Text="{Binding Email, Mode=TwoWay}"
+                   Keyboard="Email"/>
+            
+            <!-- Add Contact Button -->
+            <Button Grid.Row="6"
+                    Text="Add Contact"
+                    Command="{Binding AddContactCommand}"/>
                 </Grid>
             </Grid>
+            
 
         </ScrollView>
     </FlexLayout>

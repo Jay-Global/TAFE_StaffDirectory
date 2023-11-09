@@ -2,12 +2,17 @@
 
 public partial class MainViewModel : ObservableObject
 {
-	public MainViewModel()
-	{
-		
-	}
+    public MainViewModel()
+    {
+        Initialize();
+    }
 
-	[RelayCommand]
+    private static async void Initialize()
+    {
+        await DataManager.LoadContactsAsync();
+    }
+
+    [RelayCommand]
 
 	Task Navigate() => Shell.Current.GoToAsync(nameof(ListViewPage));
 }

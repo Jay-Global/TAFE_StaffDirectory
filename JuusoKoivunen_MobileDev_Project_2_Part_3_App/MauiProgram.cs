@@ -1,7 +1,4 @@
 ﻿using Microsoft.Extensions.Logging;
-//using JuusoKoivunen_MobileDev_Project_2_Part_3_App.Helpers;
-//using JuusoKoivunen_MobileDev_Project_2_Part_3_App.PlatformImplementations;
-using JuusoKoivunen_MobileDev_Project_2_Part_3_App.ViewModels;
 
 namespace JuusoKoivunen_MobileDev_Project_2_Part_3_App;
 
@@ -26,6 +23,9 @@ public static class MauiProgram
 
 		builder.Services.AddTransient<InsertPage>();
         builder.Services.AddTransient<InsertViewModel>();
+
+        builder.Services.AddTransient<DetailsPage>();
+
 
 #if DEBUG
         builder.Logging.AddDebug();
