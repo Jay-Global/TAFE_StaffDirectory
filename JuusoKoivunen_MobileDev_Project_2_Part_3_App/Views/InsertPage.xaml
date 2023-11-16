@@ -31,36 +31,98 @@
 
         <!--Scroll view is used to ensure that content once enough data can be scrolled-->
 
-        <StackLayout Padding="20">
-
-        <!-- First Name -->
-        <Label Text="First Name" />
-        <Entry Text="{Binding Firstname}" Placeholder="Enter first name" />
-
-        <!-- Last Name -->
-        <Label Text="Last Name" />
-        <Entry Text="{Binding LastName}" Placeholder="Enter last name" />
-
-        <!-- Department -->
-        <Label Text="Department" />
-        <Entry Text="{Binding Department}" Placeholder="Enter department" />
-
-        <!-- Role -->
-        <Label Text="Role" />
-        <Entry Text="{Binding Role}" Placeholder="Enter role" />
-
-        <!-- Mobile Number -->
-        <Label Text="Mobile Number" />
-        <Entry Text="{Binding MobileNumber}" Placeholder="Enter mobile number" />
-
-        <!-- Email -->
-        <Label Text="Email" />
-        <Entry Text="{Binding Email}" Placeholder="Enter email" />
-
-        <!-- Submit Button -->
-        <Button Text="Submit" Command="{Binding InsertCommand}" />
-
-        </StackLayout>
-
+        <ScrollView BackgroundColor="White"
+                    Margin="5"
+                    FlexLayout.Order="2"
+                    FlexLayout.Basis="100%">
+            <Grid FlexLayout.AlignSelf="Stretch">
+                <Image Aspect="AspectFill"
+                       Source="roi_wallpaper"
+                       Margin="10">
+                </Image>
+                <Grid Margin="30"
+                      RowDefinitions="auto,45,auto,45,auto,45,auto,45,auto,45,auto,45,auto"
+                      RowSpacing="5"
+                      >
+    
+                    <Label Text="First Name"
+                           TextColor="White"
+                           FontSize="Medium"
+                           Margin="0,5"
+                           Grid.Row="0">
+                    </Label>
+                    <Entry Grid.Row="1"
+                           BackgroundColor="White"
+                           TextColor="Black"
+                           Placeholder="Veronica"
+                           PlaceholderColor="Grey"
+                           Text="{Binding FirstName, Mode=TwoWay}"
+                           x:Name="FirstNameEntry"
+                           />
+                    <Label Text="Last Name"
+                           TextColor="White"
+                           FontSize="Medium"
+                           Margin="0,10"
+                           Grid.Row="2">
+                    </Label>
+                    <Entry Grid.Row="3"
+                           BackgroundColor="White"
+                           TextColor="Black"
+                           Placeholder="Mars"
+                           PlaceholderColor="Grey"
+                           Text="{Binding LastName, Mode=TwoWay}"/>
+                    <Label Text="Department"
+                           TextColor="White"
+                           FontSize="Medium"
+                           Margin="0,10"
+                           Grid.Row="4">
+                    </Label>
+                    <Entry Grid.Row="5"
+                           Placeholder="Department"
+                           Text="{Binding Department, Mode=TwoWay}"/>
+                    <Label Text="Role"
+                           TextColor="White"
+                           FontSize="Medium"
+                           Margin="0,10"
+                           Grid.Row="6">
+                    </Label>
+                    <Entry Grid.Row="7"
+                           Placeholder="Role"
+                           Text="{Binding Role, Mode=TwoWay}"/>
+                    <Label Text="Mobile"
+                            TextColor="White"
+                            FontSize="Medium"
+                            Margin="0,10"
+                            Grid.Row="8">
+                    </Label>
+                    <Entry Grid.Row="9"
+                           Placeholder="Mobile Number"
+                           Text="{Binding MobileNumber, Mode=TwoWay}"
+                           Keyboard="Telephone"/>
+                    <Label Text="Email"
+                            TextColor="White"
+                            FontSize="Medium"
+                            Margin="0,10"
+                            Grid.Row="10">
+                    </Label>
+                    <Entry Grid.Row="11"
+                           Placeholder="Email"
+                           Text="{Binding Email, Mode=TwoWay}"
+                           Keyboard="Email"/>
+                    <Button Grid.Row="12"
+                            Text="Add Contact"
+                            Clicked="Add_ContactClicked"
+                            MaximumWidthRequest="120"
+                            HeightRequest="40"
+                            BorderWidth="2"
+                            BorderColor="#595959"
+                            CornerRadius="20"
+                            BackgroundColor="white"
+                            TextColor="black"
+                            Margin="0,100,0,50"/>
+                </Grid>
+            </Grid>
+        </ScrollView>
     </FlexLayout>
 </ContentPage>
+

@@ -4,8 +4,8 @@ public partial class MainViewModel : BaseViewModel
 {
 	public MainViewModel()
 	{
-		
-	}
+        
+    }
 
 	[RelayCommand]
 

@@ -2,20 +2,25 @@
 
 public partial class App : Application
 {
-    private readonly DatabaseHelper databaseHelper;
 
-    public App(DatabaseHelper databaseHelper)
+    public App()
     {
         InitializeComponent();
 
-        this.databaseHelper = databaseHelper;
         MainPage = new AppShell();
     }
 
-    protected override async void OnStart()
+    protected override Window CreateWindow(IActivationState activationState)
     {
-        // Handle when your app starts
-        await databaseHelper.InitializeDatabaseAsync();
+        Window window = base.CreateWindow(activationState);
+
+        const int newWidth = 550;
+        const int newHeight = 950;
+
+        window.Width = newWidth;
+        window.Height = newHeight;
+
+        return window;
     }
 }
 

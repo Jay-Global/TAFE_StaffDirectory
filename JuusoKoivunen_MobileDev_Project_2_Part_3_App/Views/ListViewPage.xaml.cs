@@ -2,9 +2,9 @@
 
 public partial class ListViewPage : ContentPage
 {
-	public ListViewPage()
+    public ListViewPage()
 	{
 		InitializeComponent();
 		BindingContext = new ListViewModel();
-	}
+    }
 }

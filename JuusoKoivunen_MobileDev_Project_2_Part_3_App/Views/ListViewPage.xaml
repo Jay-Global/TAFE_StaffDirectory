@@ -40,29 +40,30 @@
                        Source="roi_wallpaper"
                        Margin="10">
                 </Image>
-                <Grid>
-                    <!--This grid will contain populated cards with information when it's added-->
-                    <ListView ItemsSource="{Binding Contacts}">
-     
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <StackLayout Orientation="Horizontal" Padding="10">
-                        <Label Text="{Binding Firstname}" 
-                               FontAttributes="Bold" 
-                               VerticalOptions="Center"/>
-                        <Label Text="{Binding LastName}"
-                               FontAttributes="Bold"
-                               VerticalOptions="Center"/>
-                    </StackLayout>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
-     
+                <ScrollView>
+                <Grid Margin="30"
+                      ColumnDefinitions="*"
+                      RowDefinitions="*">
+                    <ListView ItemsSource="{Binding Employee}"
+                           
+                              BackgroundColor="Transparent"
+                              RowHeight="65"
+                              Margin="10"
+                              WidthRequest="300"
+                              FlexLayout.AlignSelf="Center">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextCell Text="{Binding Employee.LastName}"
+                                          Detail="{Binding Employee.FirstName}"
+                                          />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
 
 
                 </Grid>
+                </ScrollView>
             </Grid>
 
         </ScrollView>

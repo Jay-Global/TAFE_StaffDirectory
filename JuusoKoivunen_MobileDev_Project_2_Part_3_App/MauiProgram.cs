@@ -15,7 +15,7 @@ public static class MauiProgram
 
         // Since we cannot run async code directly here, we start it and block the main thread.
         // This is not recommended for production code, but will suffice for initialization purposes.
-        InitializeDatabase(app.Services).GetAwaiter().GetResult();
+        //InitializeDatabase(app.Services).GetAwaiter().GetResult();
 
         return app;
     }
@@ -40,24 +40,24 @@ public static class MauiProgram
         builder.Services.AddTransient<InsertPage>();
         builder.Services.AddTransient<InsertViewModel>();
 
-        // Register the database helper as a singleton
-        builder.Services.AddSingleton(new DatabaseHelper(databasePath));
+        //// Register the database helper as a singleton
+        //builder.Services.AddSingleton(new DatabaseHelper(databasePath));
 
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
     }
 
-    private static async Task InitializeDatabase(IServiceProvider services)
-    {
-        // Retrieve the database helper from the service provider
-        var databaseHelper = services.GetService<DatabaseHelper>();
+    //private static async Task InitializeDatabase(IServiceProvider services)
+    //{
+    //    // Retrieve the database helper from the service provider
+    //    var databaseHelper = services.GetService<DatabaseHelper>();
 
-        if (databaseHelper != null)
-        {
-            await databaseHelper.InitializeDatabaseAsync();
-        }
-    }
+    //    if (databaseHelper != null)
+    //    {
+    //        await databaseHelper.InitializeDatabaseAsync();
+    //    }
+    //}
 }
 
 

@@ -1,48 +1,43 @@
-﻿//using CommunityToolkit.Mvvm.ComponentModel;
-//using CommunityToolkit.Mvvm.Input;
-//using System.Threading.Tasks;
-//using System.Windows.Input;
-
-namespace JuusoKoivunen_MobileDev_Project_2_Part_3_App.ViewModels
+﻿namespace JuusoKoivunen_MobileDev_Project_2_Part_3_App.ViewModels
 {
     public partial class InsertViewModel : BaseViewModel
     {
-        [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(CanSubmit))]
-        string firstname, lastName, department, role, mobileNumber, email;
+        //Database service to perform CRUD operations
+        private DatabaseHelper _databaseServiceSQL;
 
-        [RelayCommand]
-        async Task Insert()
+        private List<Employee> _details;
+
+
+        // Event handler for adding a new student
+        
+        private async void AddContact_Clicked(object sender, EventArgs e)
         {
-            if (IsBusy)
-                return;
+            var newEmployee = new Employee();
+            //{
+            //    FirstName = FirsNameEntry.Text,
+            //    LastName = FamilyNameEntry.Text,
+            //    Department = StudentNumberEntry.Text,
+            //    Role = EnrollmentDatePicker.Date,
+            //    MobileNumber = ,
+            //    Email = 
+            //};
 
-            IsBusy = true;
+            //SQLite Version
+            await _databaseServiceSQL.AddStudentAsync(newEmployee);
 
-            var contact = new Contact
-            {
-                FirstName = this.Firstname,
-                LastName = this.LastName,
-                Department = this.Department,
-                Role = this.Role,
-                MobileNumber = this.MobileNumber,
-                Email = this.Email
-            };
+            //CSV Version
+            //await _databaseServiceCSV.AddStudentAsync(newStudent);
 
-            var databaseHelper = new DatabaseHelper("contacts.db");
-            await databaseHelper.SaveContactAsync(contact);
+            //Un-comment for pop-ups/troubleshooting
+            //await DisplayAlert("Add Student","You Added a student","Ok");
 
-            // Handle navigation and user feedback here
-
-            IsBusy = false;
+            //GivenNameEntry.Text = FamilyNameEntry.Text = StudentNumberEntry.Text = string.Empty;
+            //LoadStudentsAsync();
+            //Add UI refresh command here
         }
 
-        public bool CanSubmit => !string.IsNullOrWhiteSpace(Firstname) &&
-                                 !string.IsNullOrWhiteSpace(LastName) &&
-                                 !string.IsNullOrWhiteSpace(Department) &&
-                                 !string.IsNullOrWhiteSpace(Role) &&
-                                 !string.IsNullOrWhiteSpace(MobileNumber) &&
-                                 !string.IsNullOrWhiteSpace(Email);
+
+
     }
 }
 

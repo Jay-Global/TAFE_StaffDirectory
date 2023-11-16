@@ -1,39 +1,55 @@
-﻿public class DatabaseHelper
+﻿namespace JuusoKoivunen_MobileDev_Project_2_Part_3_App.Services;
+
+public class DatabaseHelper
 {
-    private readonly SQLiteAsyncConnection database;
+    SQLiteAsyncConnection _database;
 
-    public DatabaseHelper(string dbPath)
+    public DatabaseHelper()
     {
-        database = new SQLiteAsyncConnection(dbPath);
+        string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Database.db");
+        _database = new SQLiteAsyncConnection(dbPath);
+        _database.CreateTableAsync<Employee>().Wait();
     }
 
-    public async Task InitializeDatabaseAsync()
+    // Clear or truncate the SQLite database
+    public void ClearDatabase()
     {
-        await database.CreateTableAsync<Contact>();
-        // Create other tables as needed here
-    }
-
-    public Task<List<Contact>> GetContactsAsync()
-    {
-        return database.Table<Contact>().ToListAsync();
-    }
-
-    public Task<int> SaveContactAsync(Contact contact)
-    {
-        if (contact.Id != 0)
+        try
         {
-            return database.UpdateAsync(contact);
+            _database.DropTableAsync<Employee>();
+            _database.CreateTableAsync<Employee>();
         }
-        else
+        catch (Exception ex)
         {
-            return database.InsertAsync(contact);
+            Console.WriteLine($"Error clearing database: {ex.Message}");
         }
     }
 
-    public Task<int> DeleteContactAsync(Contact contact)
+    #region C R U D Operations
+    //C
+    public async Task AddStudentAsync(Employee details)
     {
-        return database.DeleteAsync(contact);
+        await _database.InsertAsync(details);
     }
+
+    //R
+    public async Task<List<Employee>> GetStudentsAsync()
+    {
+        return await _database.Table<Employee>().ToListAsync(); //SELECT * FROM STUDENT(TABLE)
+    }
+
+    //U
+    public async Task UpdateStudentAsync(Contact details)
+    {
+        await _database.UpdateAsync(details);
+    }
+
+    //D
+    public async Task DeleteStudentAsync(Employee details)
+    {
+        await _database.DeleteAsync(details);
+    }
+    #endregion
 }
 
 
