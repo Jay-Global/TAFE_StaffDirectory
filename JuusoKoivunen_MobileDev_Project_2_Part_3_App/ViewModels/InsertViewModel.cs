@@ -1,17 +1,7 @@
-﻿using Contact = JuusoKoivunen_MobileDev_Project_2_Part_3_App.Model.Contact;
-
-namespace JuusoKoivunen_MobileDev_Project_2_Part_3_App.ViewModels;
+﻿namespace JuusoKoivunen_MobileDev_Project_2_Part_3_App.ViewModels;
 
 public partial class InsertViewModel : ObservableObject
 {
-    //// Properties for data binding
-    //public string FirstName { get; set; }
-    //public string LastName { get; set; }
-    //public string Department { get; set; }
-    //public string Role { get; set; }
-    //public string MobileNumber { get; set; }
-    //public string Email { get; set; }
-
     [ObservableProperty]
     string firstName;
 
@@ -32,11 +22,11 @@ public partial class InsertViewModel : ObservableObject
 
 
     [ObservableProperty]
-    List<Contact> contacts;
+    List<Person> contacts;
 
     public InsertViewModel()
     {
-        contacts = new List<Contact>(); // This could be retrieved from a data store
+        contacts = new List<Person>(); // This could be retrieved from a data store
     }
 
     [RelayCommand]
@@ -69,7 +59,7 @@ public partial class InsertViewModel : ObservableObject
         }
 
         // If validation passes, create a new contact
-        Contact newContact = new Contact
+        Person newContact = new()
         {
             FirstName = FirstName,
             LastName = LastName,
@@ -81,7 +71,7 @@ public partial class InsertViewModel : ObservableObject
 
         // Add the new contact to the DataManager's Contacts collection
         if (DataManager.Contacts == null)
-            DataManager.Contacts = new List<Contact>();
+            DataManager.Contacts = new List<Person>();
 
         DataManager.Contacts.Add(newContact);
 
@@ -98,10 +88,13 @@ public partial class InsertViewModel : ObservableObject
 
         // Inform the user or navigate back to the list
         await App.Current.MainPage.DisplayAlert("Success", "Contact added", "OK");
+
         // Optionally navigate back
-        // await Shell.Current.GoToAsync("..");
+        await Shell.Current.GoToAsync("..");
 
         // Call this method to refresh the list after adding a new contact
+
+       
     }
 
 

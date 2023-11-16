@@ -6,16 +6,17 @@
              x:DataType="viewmodel:DetailsViewModel"
              Title="Add New Contact"
              BackgroundColor="#941a1d">
+    <TableView Intent="Data">
+        <TableRoot>
+            <TableSection Title="Contact Details">
 
-    <StackLayout Padding="20">
-        <Label Text="First Name:" FontAttributes="Bold"/>
-        <Label Text="{Binding CurrentContact.LastName}"/>
 
-        <Label Text="Last Name:" FontAttributes="Bold"/>
-        <Label Text="{Binding CurrentContact.FirstName}"/>
+            </TableSection>
 
-         <!--Add more labels for department, role, mobile number, and email--> 
+        </TableRoot>
 
-    </StackLayout>
+    </TableView>
+
+    
 </ContentPage>
 

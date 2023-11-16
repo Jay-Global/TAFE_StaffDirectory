@@ -40,6 +40,7 @@
                        Source="roi_wallpaper"
                        Margin="10">
                 </Image>
+                <ScrollView>
                 <Grid Margin="30"
                       ColumnDefinitions="*"
                       RowDefinitions="*">
@@ -48,7 +49,8 @@
                               BackgroundColor="Transparent"
                               RowHeight="65"
                               Margin="10"
-                              WidthRequest="300">
+                              WidthRequest="300"
+                              FlexLayout.AlignSelf="Center">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <TextCell Text="{Binding LastName}"
@@ -61,6 +63,7 @@
 
 
                 </Grid>
+                </ScrollView>
             </Grid>
 
         </ScrollView>

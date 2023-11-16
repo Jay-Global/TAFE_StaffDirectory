@@ -2,9 +2,9 @@
 
 public partial class DetailsViewModel : ObservableObject
 {
-    public Model.Contact CurrentContact { get; }
+    public Person CurrentContact { get; }
 
-    public DetailsViewModel(Model.Contact contact)
+    public DetailsViewModel(Person contact)
     {
         CurrentContact = contact;
     }

@@ -2,11 +2,11 @@
 
 public partial class ListViewModel : ObservableObject
 {
-    public ObservableCollection<Model.Contact> Contacts { get; } = new ObservableCollection<Model.Contact>();
+    public ObservableCollection<Person> Contacts { get; } = new ObservableCollection<Person>();
 
     public ListViewModel()
     {
-        Contacts = new ObservableCollection<Model.Contact>(DataManager.Contacts);
+        Contacts = new ObservableCollection<Person>(DataManager.Contacts);
         LoadContacts();
     }
 
@@ -42,8 +42,8 @@ public partial class ListViewModel : ObservableObject
 
 
 
-    private Model.Contact _selectedContact;
-    public Model.Contact SelectedContact
+    private Person _selectedContact;
+    public Person SelectedContact
     {
         get => _selectedContact;
         set
@@ -59,7 +59,7 @@ public partial class ListViewModel : ObservableObject
         }
     }
 
-    private async void ShowContactDetails(Model.Contact contact)
+    private async void ShowContactDetails(Person contact)
     {
         // Check if the contact is already null, to prevent navigation when deselecting
         if (contact != null)

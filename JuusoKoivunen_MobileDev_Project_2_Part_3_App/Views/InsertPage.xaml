@@ -117,7 +117,7 @@
                             CornerRadius="20"
                             BackgroundColor="white"
                             TextColor="black"
-                            Margin="0,100,0,0"/>
+                            Margin="0,100,0,50"/>
                 </Grid>
             </Grid>
         </ScrollView>

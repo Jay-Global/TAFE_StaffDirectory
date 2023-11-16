@@ -1,7 +1,7 @@
 ﻿
 namespace JuusoKoivunen_MobileDev_Project_2_Part_3_App.Model
 {
-    public class Contact
+    public class Person
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

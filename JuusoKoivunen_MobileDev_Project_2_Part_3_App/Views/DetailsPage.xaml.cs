@@ -2,7 +2,7 @@
 
 public partial class DetailsPage : ContentPage
 {
-    public DetailsPage(Model.Contact selectedContact)
+    public DetailsPage(Person selectedContact)
     {
         InitializeComponent();
         BindingContext = new DetailsViewModel(selectedContact);
